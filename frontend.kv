@@ -4,13 +4,14 @@
         padding: 8
         spacing: 8
         Image:
-            source: 'files/tomb.png'
+            id: showed_img
             size_hint_y: 0.8
         TextInput:
             size_hint_y: 0.1
         Button:
             text: 'Search image'
             size_hint_y: 0.1
+            on_press: root.search_img()
 
 
 <RootWidget>
