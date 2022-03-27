@@ -9,7 +9,14 @@ Builder.load_file('frontend.kv')
 class FirstScreen(Screen):
 
     def search_img(self):
-        self.manager.current_screen.ids.showed_img.source = 'files/tomb.png'
+        # Get user query from TextInput
+        query = self.manager.current_screen.ids.user_query.text
+
+        # Download the wikipedia image
+        self.download_img(query)
+
+        # Pass retrieved image to the app
+        self.manager.current_screen.ids.showed_img.source = 'files/image.jpg'
 
     def download_img(self, name):
         pass
