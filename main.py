@@ -23,7 +23,8 @@ class FirstScreen(Screen):
         retrieved_page = wikipedia.page(name)
         image_link = retrieved_page.images[0]
         # Download the image and put it in 'files' folder
-        req = requests.get(image_link)
+        headers = {'User-agent': 'Mozilla/5.0'}
+        req = requests.get(image_link, headers=headers)
         with open('files/image.jpg', 'wb') as file:
             file.write(req.content)
 
