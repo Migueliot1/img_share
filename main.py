@@ -19,7 +19,13 @@ class FirstScreen(Screen):
         self.manager.current_screen.ids.showed_img.source = 'files/image.jpg'
 
     def download_img(self, name):
-        pass
+        # Retrieve wikipedia page and get first image from it
+        retrieved_page = wikipedia.page(name)
+        image_link = retrieved_page.images[0]
+        # Download the image and put it in 'files' folder
+        req = requests.get(image_link)
+        with open('files/image.jpg', 'wb') as file:
+            file.write(req.content)
 
 class RootWidget(ScreenManager):
     pass
